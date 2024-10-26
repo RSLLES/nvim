@@ -1,5 +1,18 @@
 local opt = vim.opt -- for conciseness
 
+-- use unix end of line by default
+-- see
+vim.cmd("set ffs=unix")
+
+-- some nice tricks
+-- https://www.reddit.com/r/neovim/comments/1abd2cq/what_are_your_favorite_tricks_using_neovim/
+vim.api.nvim_create_autocmd("BufReadPost", {
+	desc = "Open file at the last position it was edited earlier",
+	group = misc_augroup,
+	pattern = "*",
+	command = 'silent! normal! g`"zv',
+})
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
