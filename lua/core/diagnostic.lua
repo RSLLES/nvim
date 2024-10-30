@@ -14,4 +14,9 @@ vim.diagnostic.config({
 	severity_sort = false,
 })
 
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Display error in a floating window" })
+vim.keymap.set(
+	"n",
+	"<leader>ge",
+	vim.diagnostic.open_float,
+	{ desc = "Expand linter information in a floating window" }
+)
