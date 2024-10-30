@@ -74,13 +74,12 @@ return {
 
 		-- returns a python interpreter path
 		local function get_python_interpeter_path()
-			local venv = os.getenv("VIRTUAL_ENV")
-			if venv then
-				return venv .. "/bin/python"
-			else
-				vim.notify("VIRTUAL_ENV not set. Using system Python.", vim.log.levels.WARN)
-				return "/usr/bin/python3"
+			local system_python = vim.fn.system("which python"):gsub("%s+", "") -- Trim whitespace
+			if system_python == "" then
+				error("No Python interpreter found. Please ensure Python is installed and in your PATH.")
 			end
+			vim.notify("Debugging will use " .. system_python, vim.log.levels.INFO)
+			return system_python
 		end
 
 		-- configurations
