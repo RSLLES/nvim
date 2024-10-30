@@ -16,8 +16,8 @@ return {
 			handlers = {
 				-- default handler
 				function(config)
-					config.adapters.initialize_timeout_sec = 10
-					require("mason-nvim-dap").default_setup(config)
+					config.adapters.options = { initialize_timeout_sec = 12 }
+					mason_nvim_dap.default_setup(config)
 				end,
 			},
 		})
