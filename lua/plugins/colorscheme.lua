@@ -2,8 +2,9 @@ return {
 	"zaldih/themery.nvim",
 	dependencies = {
 		"neanias/everforest-nvim",
-		"gbprod/nord.nvim",
+		"rebelot/kanagawa.nvim",
 		"sho-87/kanagawa-paper.nvim",
+		"gbprod/nord.nvim",
 	},
 	lazy = false,
 	config = function()
@@ -17,6 +18,11 @@ return {
 				{
 					name = "everforest_light",
 					colorscheme = "everforest",
+					before = [[ vim.opt.background = "light" ]],
+				},
+				{
+					name = "kanagawa_light",
+					colorscheme = "kanagawa",
 					before = [[ vim.opt.background = "light" ]],
 				},
 				{
