@@ -15,11 +15,11 @@ return {
 
 		km.set("n", "<leader>dC", function()
 			dap.run_last()
-		end, { desc = "Re-runs the last debug configurations than previously ran." })
+		end, { desc = "Re-run the last debug configurations than previously ran." })
 
 		km.set("n", "<leader>dc", function()
 			dap.continue()
-		end, { desc = "Start/continue a debugging session" })
+		end, { desc = "Run/continue a debugging session" })
 
 		km.set("n", "<leader>dr", function()
 			dap.restart()
@@ -91,7 +91,7 @@ return {
 				-- debugpy's python
 				-- cwd = "/path/to/repository/root/dir",
 				module = get_module_path,
-				pythonPath = get_python_interpeter_path(),
+				pythonPath = get_python_interpeter_path,
 			},
 		}
 	end,
