@@ -87,11 +87,11 @@ return {
 			{
 				type = "python",
 				request = "launch",
-				name = "Launch current module",
-				-- debugpy's python
-				-- cwd = "/path/to/repository/root/dir",
+				name = "Current module (justMyCode = true)",
 				module = get_module_path,
 				pythonPath = get_python_interpeter_path,
+				console = "integratedTerminal",
+				justMyCode = true,
 			},
 		}
 	end,
