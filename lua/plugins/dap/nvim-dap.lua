@@ -78,7 +78,6 @@ return {
 			if system_python == "" then
 				error("No Python interpreter found. Please ensure Python is installed and in your PATH.")
 			end
-			vim.notify("Debugging will use " .. system_python, vim.log.levels.INFO)
 			return system_python
 		end
 
@@ -89,9 +88,24 @@ return {
 				request = "launch",
 				name = "Current module (justMyCode = true)",
 				module = get_module_path,
-				pythonPath = get_python_interpeter_path,
+				pythonPath = function()
+					local python_path = get_python_interpeter_path()
+					vim.notify("Python debugger will use " .. python_path, vim.log.levels.INFO)
+				end,
 				console = "integratedTerminal",
 				justMyCode = true,
+			},
+			{
+				type = "python",
+				request = "launch",
+				name = "Current module (justMyCode = false)",
+				module = get_module_path,
+				pythonPath = function()
+					local python_path = get_python_interpeter_path()
+					vim.notify("Python debugger will use " .. python_path, vim.log.levels.INFO)
+				end,
+				console = "integratedTerminal",
+				justMyCode = false,
 			},
 		}
 	end,
