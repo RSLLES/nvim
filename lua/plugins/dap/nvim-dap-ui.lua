@@ -23,5 +23,14 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
+
+		-- keymaps
+		local km = vim.keymap -- for conciseness
+		km.set("n", "<leader>dt", function()
+			dapui.toggle()
+		end, { desc = "Toggle ui" })
+		km.set("n", "<leader>dy", function()
+			dapui.open({ reset = true })
+		end, { desc = "Reset and open ui if needed" })
 	end,
 }

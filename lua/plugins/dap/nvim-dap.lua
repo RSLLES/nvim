@@ -8,7 +8,7 @@ return {
 		local km = vim.keymap -- for conciseness
 		km.set("n", "<leader>db", function()
 			dap.toggle_breakpoint()
-		end, { desc = "Toogle a breakpoint" })
+		end, { desc = "Toggle a breakpoint" })
 
 		km.set("n", "<leader>dB", function()
 			dap.clear_breakpoints()
