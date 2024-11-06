@@ -1,6 +1,7 @@
 local M = {}
 
 local lua_utils = require("utils.lua")
+local os_utils = require("utils.os")
 
 function get_python_interpeter_path_windows()
 	local output = vim.fn.system("where python")
@@ -14,7 +15,7 @@ end
 
 -- returns a python interpreter path
 function M.get_python_interpeter_path()
-	local system_python = lua_utils.is_windows() and get_python_interpeter_path_windows()
+	local system_python = os_utils.is_windows() and get_python_interpeter_path_windows()
 		or get_python_interpeter_path_unix()
 	if system_python == "" then
 		error("No Python interpreter found. Please ensure Python is installed and in your PATH.")
@@ -34,7 +35,7 @@ function M.get_module_path()
 		error(file_path .. " does not have a .py extension")
 	end
 	local relative_path = file_path:sub(#cwd + 2) -- +2 to remove both separator and the cwd
-	local path_sep = lua_utils.is_windows() and "\\" or "/"
+	local path_sep = os_utils.is_windows() and "\\" or "/"
 	local module_path = relative_path:gsub(path_sep, "."):gsub("%.py$", "")
 	return module_path
 end
