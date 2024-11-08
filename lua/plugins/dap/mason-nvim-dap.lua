@@ -23,19 +23,19 @@ return {
 				-- pythonw on Windows does not open an external terminal
 				python_path = python_path .. "w"
 			end
-			vim.notify("Debugpy path is " .. python_path)
+			vim.notify("Debugpy path is " .. python_path, vim.log.levels.DEBUG)
 			return python_path
 		end
 
 		local function get_python_interpeter_path()
 			local python_path = python_utils.get_python_interpeter_path()
-			vim.notify("Python debugger will use " .. python_path, vim.log.levels.INFO)
+			vim.notify("Python debugger will use " .. python_path, vim.log.levels.DEBUG)
 			return python_path
 		end
 
 		local function get_module_path()
 			local module_path = python_utils.get_module_path()
-			vim.notify("Debugging module " .. module_path, vim.log.levels.INFO)
+			vim.notify("Debugging module " .. module_path, vim.log.levels.DEBUG)
 			return module_path
 		end
 
