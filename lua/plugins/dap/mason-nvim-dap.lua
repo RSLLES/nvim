@@ -8,6 +8,7 @@ return {
 	config = function()
 		local mason_nvim_dap = require("mason-nvim-dap")
 		local python_utils = require("utils.python")
+		local os_utils = require("utils.os")
 
 		-- tools
 		local function get_debugpy_python_interpreter_path()
@@ -18,8 +19,10 @@ return {
 				"debugpy",
 				python_utils.get_venv_python_path({ venv_name = "venv" })
 			)
-			-- launch pythonw instead of python, which does not spawn a shell with windows
-			python_path = python_path .. "w"
+			if os_utils.is_windows() then
+				-- pythonw on Windows does not open an external terminal
+				python_path = python_path .. "w"
+			end
 			vim.notify("Debugpy path is " .. python_path)
 			return python_path
 		end
