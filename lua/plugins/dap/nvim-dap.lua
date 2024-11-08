@@ -47,39 +47,5 @@ return {
 			"DapBreakpoint",
 			{ text = "🔴", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
 		)
-
-		-- configurations
-		local function get_python_interpeter_path()
-			local python_path = python_utils.get_python_interpeter_path()
-			vim.notify("Python debugger will use " .. python_path, vim.log.levels.INFO)
-			return python_path
-		end
-
-		local function get_module_path()
-			local module_path = python_utils.get_module_path()
-			vim.notify("Debugging module " .. module_path, vim.log.levels.INFO)
-			return module_path
-		end
-
-		dap.configurations.python = {
-			{
-				type = "python",
-				request = "launch",
-				name = "Current module (justMyCode = true)",
-				module = get_module_path,
-				pythonPath = get_python_interpeter_path,
-				console = "integratedTerminal",
-				justMyCode = true,
-			},
-			{
-				type = "python",
-				request = "launch",
-				name = "Current module (justMyCode = false)",
-				module = get_module_path,
-				pythonPath = get_python_interpeter_path,
-				console = "integratedTerminal",
-				justMyCode = false,
-			},
-		}
 	end,
 }
