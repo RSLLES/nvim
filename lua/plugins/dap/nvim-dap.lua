@@ -42,6 +42,12 @@ return {
 			dap.terminate()
 		end, { desc = "Terminate debugging session" })
 
+		km.set("n", "<leader>de", function()
+			local buffer = vim.fn.getreg(0)
+			-- vim.notify(buffer)
+			dap.repl.execute(buffer)
+		end, { desc = 'Execute text in register "0' })
+
 		-- ui
 		vim.fn.sign_define(
 			"DapBreakpoint",

@@ -87,6 +87,7 @@ return {
 
 					-- adapters
 					config.adapters = function(cb, config)
+						-- this part is useful when debugging parallel workers, but right now it does not work
 						if config.request == "attach" then
 							error("Dunno what this section is doing so I put an error here so you know it is useful")
 							local port = (config.connect or config).port
