@@ -11,11 +11,18 @@
     ],
     "description": "header guard. format :\n\tINCLUDE_<dirname>_<filename>_<extension>_"
   },
-  "Trace Variable with Line Number": {
-    "prefix": "trace",
+  "Log Variable with Line Number": {
+    "prefix": "log",
     "body": [
       "std::cout << \"[${TM_LINE_NUMBER}| ${RELATIVE_FILEPATH}] ${1:variable}: \" << ${1:variable} << std::endl;"
     ],
-    "description": "Trace a variable with its name and line number"
+    "description": "Log a variable with its name and line number"
+  },
+  "Trace": {
+    "prefix": "trace",
+    "body": [
+      "std::cout << \"[${TM_LINE_NUMBER}| ${RELATIVE_FILEPATH}]\" << std::endl;"
+    ],
+    "description": "Add a trace"
   }
 }
