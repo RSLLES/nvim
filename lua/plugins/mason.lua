@@ -19,9 +19,10 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"clang-format",
-				-- "ruff",
-				"stylua",
+				"clang-format", -- c
+				"stylua", -- lua
+				"yq", -- yaml
+				"jq", -- json
 			},
 		})
 	end,
